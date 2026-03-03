@@ -1,0 +1,16 @@
+{
+  "name": "Inventario Mac Minimal",
+  "short_name": "InventarioMac",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f4f6",
+  "theme_color": "#111827",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23111827'/%3E%3Ctext x='60' y='72' text-anchor='middle' font-size='64' fill='white'%3E%F0%9F%93%A6%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
