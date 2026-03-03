@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Inventario Mac Minimal</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Inventario Mac</h1>
+      <div class="topbar-actions">
+        <label for="themeColor">Color</label>
+        <input id="themeColor" type="color" value="#0f766e" />
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="card">
+        <h2>Nuevo ítem</h2>
+        <form id="itemForm" class="grid">
+          <input name="name" placeholder="Nombre" required />
+          <input name="sku" placeholder="SKU" required />
+          <input name="category" placeholder="Categoría" value="Mac" />
+          <input name="cost" type="number" min="0" step="0.01" placeholder="Costo" />
+          <textarea name="notes" placeholder="Notas"></textarea>
+          <input name="custom" placeholder="Campos personalizados (clave:valor, clave:valor)" />
+          <button type="submit">Guardar ítem</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Variantes y stock</h2>
+        <form id="movementForm" class="grid">
+          <select id="itemSelect" required></select>
+          <input name="variant" placeholder="Variante (ej. M3/16GB/512)" required />
+          <select name="type" required>
+            <option value="in">Entrada</option>
+            <option value="out">Salida</option>
+          </select>
+          <input name="qty" type="number" min="1" value="1" required />
+          <input name="role" placeholder="Rol que ejecuta (admin/operador)" />
+          <button type="submit">Aplicar movimiento</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Herramientas</h2>
+        <div class="actions">
+          <button id="exportExcel">Exportar Excel</button>
+          <label class="import-label">
+            Importar Excel
+            <input id="importExcel" type="file" accept=".xlsx,.xls" />
+          </label>
+          <button id="backupBtn">Respaldo JSON</button>
+          <label class="import-label">
+            Restaurar JSON
+            <input id="restoreInput" type="file" accept="application/json" />
+          </label>
+          <button id="whatsappBtn">WhatsApp stock</button>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Inventario actual</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>SKU</th>
+              <th>Categoría</th>
+              <th>Variantes</th>
+              <th>Stock total</th>
+              <th>Custom</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryBody"></tbody>
+        </table>
+      </section>
+
+      <section class="card full">
+        <h2>Historial de movimientos</h2>
+        <ul id="movementLog"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
