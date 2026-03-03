@@ -2,6 +2,33 @@
 
 Aplicación web minimalista para inventario personalizable enfocada en accesorios/dispositivos Mac.
 
+## Cómo entrar (local)
+
+1. Abre una terminal dentro de esta carpeta.
+2. Ejecuta:
+
+```bash
+python3 -m http.server 8080
+```
+
+3. Entra desde tu navegador a:
+
+```text
+http://localhost:8080
+```
+
+> Si solo abres el archivo `index.html` con doble clic, la app funciona, pero el modo offline PWA puede no registrarse correctamente en algunos navegadores.
+
+## Cómo verlo en GitHub
+
+En tu captura se ve la rama `main` con solo `.gitkeep`. La app está en la rama de trabajo y debe integrarse a `main` para verla allí.
+
+Flujo recomendado:
+
+1. Abrir/aceptar el Pull Request de la rama `work` hacia `main`.
+2. Hacer merge del PR.
+3. Volver a `main` en GitHub y recargar la página.
+
 ## Características
 
 - Inventario con campos base + campos personalizados.
@@ -13,16 +40,22 @@ Aplicación web minimalista para inventario personalizable enfocada en accesorio
 - Tema minimalista con selector de color.
 - Generación rápida de mensaje para WhatsApp.
 
-## Uso rápido
+## Publicarlo gratis (GitHub Pages)
 
-1. Abrir `index.html` en un navegador moderno.
-2. (Opcional) Servir localmente para habilitar Service Worker:
+Ya se incluye un workflow para publicar el sitio en GitHub Pages al hacer merge en `main` (`.github/workflows/pages.yml`).
 
-```bash
-python3 -m http.server 8080
+Pasos:
+
+1. En GitHub: **Settings → Pages**.
+2. En "Source", selecciona **GitHub Actions**.
+3. Haz merge del PR a `main`.
+4. Espera a que termine el workflow "Deploy static app to GitHub Pages".
+
+Luego tendrás una URL pública del tipo:
+
+```text
+https://TU-USUARIO.github.io/CHAT-GPT/
 ```
-
-3. Ir a `http://localhost:8080`.
 
 ## Notas
 
