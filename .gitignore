@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+exports/
+converted_mp3/
+.cache-*/
